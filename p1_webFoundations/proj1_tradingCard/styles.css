@@ -12,13 +12,16 @@ body{
     font-size: 30px;
 }
 #container{
-    width: 300px;
+    width: 400px;
     margin: 20px auto;
     border: 2px solid #e6e5e2;
     border-radius: 2px;
     box-shadow: 1px 4px 8px 2px #e6e5e2;
     padding: 16px;
 }
+img {
+    width: 100%;
+    }
 #container-card{
     margin-top: 16px;
     border: 2px solid #e6e5e2;
