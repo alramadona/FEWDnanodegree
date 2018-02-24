@@ -1,1 +1,42 @@
 /* add your CSS here */
+html,body,ul,li{
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.card-title{
+    font-weight: bold;
+    font-size: 30px;
+}
+#container{
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid #e6e5e2;
+    border-radius: 2px;
+    box-shadow: 1px 4px 8px 2px #e6e5e2;
+    padding: 16px;
+}
+#container-card{
+    margin-top: 16px;
+    border: 2px solid #e6e5e2;
+    padding: 16px;
+}
+#container-card .card-summary{
+    font-style: italic;
+}
+#container-card li{
+    list-style-type: none;
+}
+#container-card .list-item{
+    font-style: italic;
+}
+#container-card .list-title{
+    font-weight: bold;
+    font-style: normal;
+}
+#container-card .card-description{
+    font-size: 16px;
+}

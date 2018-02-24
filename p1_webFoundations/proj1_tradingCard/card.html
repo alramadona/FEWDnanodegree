@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
-	<title>Animal Trading Cards</title>
+	<title>Animal Cards</title>
 	<link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
-	<div>
+	<div id="container">
 		<!-- your favorite animal's name goes here -->
-		<h3>Clownfish</h3>
+		<h3 class="card-title">Komodo dragon</h3>
+		<!-- source: https://en.wikipedia.org/wiki/Komodo_dragon -->
 		<!-- your favorite animal's image goes here -->
-		<img src="placeholder.png" alt="Clownfish">
-		<div>
+		<img src="placeholder.png" alt="Komodo dragon">
+		<div id="container-card">
 			<!-- your favorite animal's interesting fact goes here -->
-			<p>A layer of mucus on the clownfish's skin makes it immune to the fish-eating anemone's lethal sting.</p>
+			<p class="card-summary">The Komodo dragon, also known as the Komodo monitor, 
+				is a member of the monitor lizard family Varanidae, the largest living species of lizard.</p>
 			<ul>
 				<!-- your favorite animal's list items go here -->
-				<li><span>Scientific Name</span>: Amphiprioninae</li>
-				<li><span>Average Length</span>: 11 centimeters</li>
-				<li><span>Average Lifespan</span>: 7 years</li>
-				<li><span>Habitat</span>: Tropical coral reefs</li>
+				<li class="list-item"><span class="list-title">Scientific Name</span>: Varanus komodoensis</li>
+				<li class="list-item"><span class="list-title">Maximum Length</span>: 3 metres</li>
+				<li class="list-item"><span class="list-title">Average Lifespan</span>: 5 years</li>
+				<li class="list-item"><span class="list-title">Habitat</span>: the Indonesian islands of Komodo, 
+					Rinca, Flores, Gili Motang, and Padar</li>
 			</ul>
 			<!-- your favorite animal's description goes here -->
-			<p>Bright orange with three distinctive white bars, clown anemonefish are among the most recognizable of all reef-dwellers. They reach about 11 centimeters in length and are named for the multicolored sea anemone in which they make their home.</p>
+			<p class="card-description">Their unusually large size has been attributed to island gigantism 
+				since no other carnivorous animals fill the niche on the islands where they live. 
+				However, recent research suggests the large size of Komodo dragons may be better understood 
+				as representative of a relict population of very large varanid lizards that once lived across 
+				Indonesia and Australia, most of which, along with another megafauna, died out after 
+				the Pleistocene (likely as a result of human activity).</p>
 		</div>
 	</div>
 </body>
+
 </html>
