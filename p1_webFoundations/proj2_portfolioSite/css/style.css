@@ -6,13 +6,13 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    }
+}
 
-.header_logo {
+.header-logo {
     width: 30%;
 }
 
-.header_title {
+.header-title {
     width: 70%;
     color: #2d3c49;
     text-align: right;
@@ -36,9 +36,9 @@ p {
 
 .box {
     width: 100%;
-    }
+}
 
-.divider_line{
+.divider-line{
     height: 3px;
     background-color: #2d3c49;
     margin: 5px 0;
@@ -54,7 +54,7 @@ img {
     max-width: 100%;
 }
 
-.divider_title{
+.divider-title{
     color:#7d97ad;
     margin: 5px 0;
 }
