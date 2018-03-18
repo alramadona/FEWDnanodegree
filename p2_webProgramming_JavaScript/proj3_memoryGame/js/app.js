@@ -1,16 +1,23 @@
-/*
- * Create a list that holds all of your cards
- */
+// card symbols
+let cards = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb", "fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-leaf", "fa-bicycle", "fa-bomb"];
 
+// additional variables
+let openCard = [];
+let moves = 0;
+let starts = 3;
+let matchFound = 0;
+let startGame = false;
+let starRating = "3";
+let timer;
 
 /*
- * Display the cards on the page
+ * display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+// shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -25,6 +32,13 @@ function shuffle(array) {
     return array;
 }
 
+// create HTML for each card
+function createCard() {
+    let cardList = shuffle(cards);
+    cardList.forEach(function(card) {
+      $(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
+    })
+  }
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -36,3 +50,133 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ // finding matching cards
+function findMatch() {
+    // showing a card when clicked
+    $(".card").on("click", function() {
+      if ($(this).hasClass("open show")) { return; }
+      $(this).toggleClass("flipInY open show");
+      openCard.push($(this));
+      startGame = true;
+     // check if classlist matches when openCard length == 2
+      if (openCard.length === 2) {
+        if (openCard[0][0].classList[2] === openCard[1][0].classList[2]) {
+        openCard[0][0].classList.add("bounceIn", "match");
+        openCard[1][0].classList.add("bounceIn", "match");
+        $(openCard[0]).off('click');
+        $(openCard[1]).off('click');
+        matchFound += 1;
+        moves++;
+        removeOpenCards();
+        findWinner();
+        } else {
+        // if classes don't match, add "wrong" class
+        openCard[0][0].classList.add("shake", "wrong");
+        openCard[1][0].classList.add("shake", "wrong");
+        // set timeout to remove "show" and "open" class
+        setTimeout(removeClasses, 1100);
+        // reset openCard.length to 0
+        setTimeout(removeOpenCards, 1100);
+        moves++;
+        }
+      }
+    updateMoves();
+    })
+  }
+  
+  // update HTML with number of moves
+  function updateMoves() {
+    if (moves === 1) {
+      $("#movesText").text(" Move");
+    } else {
+      $("#movesText").text(" Moves");
+    }
+    $("#moves").text(moves.toString());
+  
+    if (moves > 0 && moves < 16) {
+      starRating = starRating;
+    } else if (moves >= 16 && moves <= 20) {
+      $("#starOne").removeClass("fa-star");
+      starRating = "2";
+    } else if (moves > 20) {
+      $("#starTwo").removeClass("fa-star");
+      starRating = "1";
+    }
+  }  
+  
+  // open popup when game is complete source: www.w3schools.com
+  function findWinner() {
+  
+    if (matchFound === 8) {
+  
+      var modal = document.getElementById('win-popup');
+      var span = document.getElementsByClassName("close")[0];
+  
+      $("#total-moves").text(moves);
+      $("#total-stars").text(starRating);
+  
+      modal.style.display = "block";
+  
+    // when the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+  
+     $("#play-again-btn").on("click", function() {
+         location.reload()
+     });
+  
+     clearInterval(timer);  
+  
+   }
+  }
+  
+  // reset openCard.length to 0
+  function removeOpenCards() {
+    openCard = [];
+  }
+  
+  // remove all classes except "match"
+  function removeClasses() {
+    $(".card").removeClass("show open flipInY bounceIn shake wrong");
+    removeOpenCards();
+  }
+  
+  // disable clicks
+  function disableClick() {
+   openCard.forEach(function (card) {
+     card.off("click");
+    })
+  }
+  
+  // start timer on the first card click
+  function startTimer() {
+    let clicks = 0;
+    $(".card").on("click", function() {
+      clicks += 1;
+      if (clicks === 1) {
+        var sec = 0;
+        function time ( val ) { return val > 9 ? val : "0" + val; }
+        timer = setInterval( function(){
+          $(".seconds").html(time(++sec % 60));
+          $(".minutes").html(time(parseInt(sec / 60, 10)));
+        }, 1000);
+      }
+    })
+   }
+  
+  // call functions
+  shuffle(cards);
+  createCard();
+  findMatch();
+  startTimer();
+  
+  // function to restart the game on icon click
+  function restartGame() {
+    $("#restart").on("click", function() {
+        location.reload()
+    });
+    }
+  
+  restartGame();
