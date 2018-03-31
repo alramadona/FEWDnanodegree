@@ -1,4 +1,4 @@
-// card symbols
+// variables
 let cards = [
   "fa-diamond",
   "fa-paper-plane-o",
@@ -17,8 +17,6 @@ let cards = [
   "fa-bicycle", 
   "fa-bomb"
 ];
-
-// variables
 let openCard = [];
 let startGame = false;
 let matchFound = 0;
@@ -47,6 +45,8 @@ function shuffleCard() {
     let cardList = shuffle(cards);
     cardList.forEach(function(card) {
       $(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
+      // newElement.innerHTML = '<li><i class="card fa ' + card + '"></i></li>';
+      // $(".deck").appendChild(newElement);
     })
   }
 
@@ -165,7 +165,7 @@ function findMatch() {
     })
    }
   
-    // function to restart the game on icon click
+  // function to restart the game on icon click
   function restartGame() {
     $("#restart").on("click", function() {
         location.reload()

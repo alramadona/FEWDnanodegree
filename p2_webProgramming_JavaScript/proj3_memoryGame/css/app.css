@@ -191,12 +191,6 @@ h1 {
   transition: box-shadow 0.5s;
 }
 
-#play-again-btn:hover {
-  box-shadow: 3px 3px 8px #6F6F6F;
-  background-color: #cdcdcd;
-  cursor: pointer;
-}
-
 #star-rating-text {
   padding-left: 15px;
 }
@@ -243,7 +237,9 @@ h1 {
   h1 {
     margin: 0;
     padding: 10px 0;
+    font-size: 1.5em;
   }
+
 }
 
 #win-popup.zoomIn {
