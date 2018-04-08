@@ -1,20 +1,31 @@
-# Memory Game Project
+# Matching Game
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Rules](#rules)
+* [Technical](#technical)
+* [Credits](#credits)
 
-## Instructions
+## Rules
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* There are eight pairs of cards on the game board.
+* Once you click on a card, it will flip and show its icon.
+* When you click on another card and after that card flips:
+	* In case this card icon matches the one that was flipped earlier then both cards will turn blue.
+    * In case both cards don't match then both cards will be flipped on their back again.
+* Every a pair of cards you flip will be considered as a move and the number of them will be incremented and showed on the game board.
+	* If you have more than 16 moves you will be loose one star, and after 24, you will be loose two stars.
+* After you successfully manage to match all eight pairs of cards, a popup window will congratulate you and show how many moves and how much time have you spent.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Technical
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+* This game includes the following files:
+	* **index.html**
+	* **css/app.css**
+	* **js/app.js**
+    * **img/geometry2.png**
+* Double click **index.html** file to run the game.
 
-## Contributing
+## Credits
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* The repository for the starter code can be found on [Github](https://github.com/udacity/fend-project-memory-game).

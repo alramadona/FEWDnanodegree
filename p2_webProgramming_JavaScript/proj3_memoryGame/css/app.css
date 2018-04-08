@@ -19,7 +19,6 @@ body {
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
-    color: #393939; /**/
 }
 
 .container {
@@ -50,7 +49,6 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
-    list-style-type: none; /**/
 }
 
 .deck .card {
@@ -83,10 +81,6 @@ h1 {
     font-size: 33px;
 }
 
-.deck .card.wrong { /**/
-  background: #fa5050; /**/
-} /**/
-
 /*
  * Styles for the Score Panel
  */
@@ -95,8 +89,6 @@ h1 {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
-    display: flex; /**/
-    justify-content: space-between; /**/
 }
 
 .score-panel .stars {
@@ -104,39 +96,20 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
-    color: #ffcc00; /**/
 }
 
 .score-panel .stars li {
-    list-style-type: none; /* list-style */
+    list-style: none;
     display: inline-block;
 }
 
 .score-panel .restart {
-    /* float: right; */
+    float: right;
     cursor: pointer;
 }
 
-#restart i {
-  padding-left: 5px;
-}
+/* partly from https://www.w3schools.com/howto/howto_js_popup.asp */ 
 
-#timer {
-  display: inline-block;
-}
-
-#timer-text {
-  color: #000000;
-}
-
-#restart-text {
-  color: #000000;
-}
-
-/*
- * Styles for winner popup
- */
- 
 .popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -147,9 +120,6 @@ h1 {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .popup-content {
@@ -159,7 +129,7 @@ h1 {
     width: 100%;
     padding: 20px;
     text-align: center;
-    font-family: 'Open Sans', sans-serif; /*'Helvetica'*/
+    font-family: 'Open Sans', sans-serif;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 1.5s;
     animation-name: animatetop;
@@ -178,70 +148,22 @@ h1 {
   color: #4f4f4f;
 }
 
-#play-again-btn {
-  background-color: #18bf8f;
-  color: white;
-  font-size: 16px;
-  font-weight: normal;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 15px;
-  box-shadow: 7px 7px 30px #cdcdcd;
-  transition: box-shadow 0.5s;
-}
-
-#star-rating-text {
-  padding-left: 15px;
-}
-
-.close {
-    color: #cdcdcd;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/*
- * Media queries
- */
-
 @media only screen and (max-width: 780px) {
-  .deck {
-    max-width: 300px;
-    min-height: auto;
-    padding-bottom: 17px;
-  }
-
-  .deck .card {
-    height: 50px;
-    width: 50px;
-    margin-bottom: 17px;
-  }
-
-  .score-panel {
-    max-width: 70%;
-    padding-bottom: 0;
-    display: block;
-    text-align: center;
-    line-height: 1.7em;
-  }
-
-  h1 {
-    margin: 0;
-    padding: 10px 0;
-    font-size: 1.5em;
-  }
-
-}
-
-#win-popup.zoomIn {
-  animation-delay: 1s;
+    .deck {
+      max-width: 300px;
+      min-height: auto;
+      padding-bottom: 17px;
+    }
+  
+    .deck .card {
+      height: 50px;
+      width: 50px;
+      margin-bottom: 17px;
+    }
+  
+    h1 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 1.5em;
+    }
 }
